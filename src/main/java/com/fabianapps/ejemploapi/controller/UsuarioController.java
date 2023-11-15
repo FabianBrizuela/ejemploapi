@@ -39,6 +39,7 @@ public class UsuarioController {
 
 	@PostMapping(path = "/usuario/crear", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Usuario> create(@RequestBody Usuario newUser) {
+		//comentario
 		return new ResponseEntity<>(new Usuario(newUser.getNombre()+"-ok", newUser.getCi()), HttpStatus.CREATED);
 	}
 	
