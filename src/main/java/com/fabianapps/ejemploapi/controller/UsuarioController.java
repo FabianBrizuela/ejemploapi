@@ -1,9 +1,12 @@
 package com.fabianapps.ejemploapi.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,12 +55,25 @@ public class UsuarioController {
 
 	@PostMapping(path = "/usuario/crear", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> create(@RequestBody UsuarioDTO dto) {
-		
 		this.usuarioService.crearUsuario(dto);
-		
-		//comentario
 		return new ResponseEntity<>("Usuario creado!", HttpStatus.CREATED);
 	}
 	
+	@GetMapping(path = "/usuario/recuperarxid")
+	public ResponseEntity<UsuarioDTO> recuperar(@RequestParam(value = "id") long id) {
+		UsuarioDTO dto = this.usuarioService.recuperarXid(id);
+		return new ResponseEntity<>(dto, HttpStatus.OK);
+	}
 	
+	@GetMapping(path = "/usuario/recuperartodos")
+	public ResponseEntity<ArrayList<UsuarioDTO>> recuperarTodos() {
+	    ArrayList<UsuarioDTO> usuarios = this.usuarioService.recuperarTodos();
+		return new ResponseEntity<>(usuarios, HttpStatus.OK);
+	}
+	
+	@DeleteMapping(path = "/usuario/borrarxid")
+	public ResponseEntity<String> borrar(@RequestParam(value = "id") long id) {
+		this.usuarioService.borrarXid(id);
+		return new ResponseEntity<>("Usuario Eliminado!", HttpStatus.OK);
+	}
 }

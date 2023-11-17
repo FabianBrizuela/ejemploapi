@@ -1,5 +1,6 @@
 package com.fabianapps.ejemploapi.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,8 +15,12 @@ public class Usuario {
 
 	private String nombre;
 	private String apellido;
+	
+	@Column(name="NRO_DOCUMENTO", nullable=false, unique=true)
 	private long nroDocumento;
 	private int edad;
+	
+	
 	public long getId() {
 		return id;
 	}

@@ -6,6 +6,7 @@ public class UsuarioDTO {
 	private String apellido;
 	private long nroDocumento;
 	private int edad;
+	private String mensaje;
 	
 	public String getNombre() {
 		return nombre;
@@ -30,6 +31,12 @@ public class UsuarioDTO {
 	}
 	public void setEdad(int edad) {
 		this.edad = edad;
+	}
+	public String getMensaje() {
+		return mensaje;
+	}
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
 	}
 	
 	
