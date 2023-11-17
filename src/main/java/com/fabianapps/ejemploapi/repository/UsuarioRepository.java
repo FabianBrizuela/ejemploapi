@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.fabianapps.ejemploapi.entity.Usuario;
 
-public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
+public interface UsuarioRepository extends CrudRepository<Usuario, Long> {	
 
 }

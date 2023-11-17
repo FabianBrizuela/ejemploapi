@@ -84,4 +84,10 @@ public class UsuarioService {
 	}
 	
 	
+	public void actualizarEdad(long id, int edad) {
+	    Usuario usuario = this.usuarioRepository.findById(id).get();
+	    usuario.setEdad(edad);
+	    this.usuarioRepository.save(usuario);
+	}
+	
 }

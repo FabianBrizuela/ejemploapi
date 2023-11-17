@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -76,4 +77,14 @@ public class UsuarioController {
 		this.usuarioService.borrarXid(id);
 		return new ResponseEntity<>("Usuario Eliminado!", HttpStatus.OK);
 	}
+	
+	
+	@PutMapping(path = "/usuario/actualizaredad")
+	public ResponseEntity<String> actualizarEdad(@RequestParam(value = "id") long id, @RequestParam(value = "edad") int edad) {
+		this.usuarioService.actualizarEdad(id, edad);
+		return new ResponseEntity<>("Usuario Actualizado!", HttpStatus.OK);
+	}
+	
+	
+	
 }
